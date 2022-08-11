@@ -32,3 +32,12 @@ export const emailVerifiyAdminUser = (data) => {
   };
   return apiProcessor(option);
 };
+// Login user
+export const loginAdminUser = (data) => {
+  const option = {
+    method: "post",
+    url: adminUserEP + "/login",
+    data,
+  };
+  return apiProcessor(option);
+};

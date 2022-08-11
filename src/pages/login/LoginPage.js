@@ -1,33 +1,60 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Container } from "react-bootstrap";
 import { Footer } from "../../components/footer/Footer";
 import { Header } from "../../components/Header.js/Header";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { CustomInputFeild } from "../../customInputFeild/CustomInputFeild";
+import { useDispatch, useSelector } from "react-redux";
+import { loginAdminUser, loginUserAction } from "./userAction";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [form, setForm] = useState({});
+
+  const { user } = useSelector((state) => state.admin);
+  useEffect(() => {
+    user._id && navigate("/dashboard");
+  }, [user, navigate]);
+
+  const handleOnChange = (e) => {
+    const { name, value } = e.target;
+    setForm({
+      ...form,
+      [name]: value,
+    });
+  };
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+    console.log(form);
+    dispatch(loginUserAction(form));
+  };
   return (
     <div>
       <Header />
       <Container className="page-main">
-        <Form className="form m-auto mt-5 p-5">
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <h1>Login Here.</h1>
-            <hr />
-            <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
-          </Form.Group>
-          <Form.Group
-            className="mb-3"
-            controlId="formBasicCheckbox"
-          ></Form.Group>
+        <Form className="form mt-5 p-5" onSubmit={handleOnSubmit}>
+          <h1>Welcome Back!!!</h1>
+          <CustomInputFeild
+            onChange={handleOnChange}
+            label="Email"
+            name="email"
+            type="email"
+            required={true}
+            placeholder="a@a.com"
+          />
+          <CustomInputFeild
+            onChange={handleOnChange}
+            label="Password"
+            name="password"
+            required={true}
+            type="password"
+            placeholder="*********"
+          />
           <Button variant="primary" type="submit">
-            Submit
+            Login
           </Button>
         </Form>
       </Container>
