@@ -1,8 +1,9 @@
 .App {
-  background-color: rgba(255, 255, 0, 0.534);
+  background-color: rgba(234, 234, 216, 0.534);
 }
 .page-main {
-  min-height: 70vh;
+  margin-top: -2rem;
+  min-height: 40vh;
 }
 
 .form {
@@ -12,9 +13,29 @@
   padding: 1.5rem;
   border-radius: 10px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.671);
-  width: 500px;
+  width: 400px;
+  height: 70vh;
   margin-left: auto;
   margin-right: auto;
-  background-color: rgba(255, 255, 0, 0.29);
-  border: 2px solid rgb(179, 81, 81);
+  background-color: rgba(232, 232, 212, 0.783);
+  border-radius: 0 50px 00px 50px;
+  background-size: cover;
+  /* border: 2px solid black; */
+  /* border: 2px solid rgb(179, 81, 81); */
+}
+.login {
+  background-image: url(./img/login.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.logo {
+  background-color: rgba(0, 0, 0, 0.489);
+  border-radius: 0 50px 00px 50px;
+}
+.sidemenu {
+  background-color: black;
 }

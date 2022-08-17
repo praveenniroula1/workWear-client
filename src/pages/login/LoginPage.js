@@ -7,16 +7,21 @@ import Form from "react-bootstrap/Form";
 import { CustomInputFeild } from "../../customInputFeild/CustomInputFeild";
 import { useDispatch, useSelector } from "react-redux";
 import { loginAdminUser, loginUserAction } from "./userAction";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import logo from "./../../img/logo.png";
 
 const LoginPage = () => {
+  const location = useLocation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [form, setForm] = useState({});
 
   const { user } = useSelector((state) => state.admin);
+  const origin =
+    (location.state && location.state.from && location.state.from.pathname) ||
+    "/dashboard";
   useEffect(() => {
-    user._id && navigate("/dashboard");
+    user._id && navigate(origin);
   }, [user, navigate]);
 
   const handleOnChange = (e) => {
@@ -32,10 +37,13 @@ const LoginPage = () => {
     dispatch(loginUserAction(form));
   };
   return (
-    <div>
+    <div className="login">
       <Header />
       <Container className="page-main">
         <Form className="form mt-5 p-5" onSubmit={handleOnSubmit}>
+          <a href="/" className="d-flex justify-content-center">
+            <img className="logo" src={logo} width="350" height="150" />
+          </a>
           <h1>Welcome Back!!!</h1>
           <CustomInputFeild
             onChange={handleOnChange}

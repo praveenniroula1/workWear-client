@@ -89,9 +89,9 @@ const AdminRegistration = () => {
   return (
     <div>
       <Header />
-      <Container className="page-main">
+      <Container className="page-main ">
         <div className="form">
-          <Form onSubmit={handleOnSubmit}>
+          <Form onSubmit={handleOnSubmit} className="">
             <h1>Register New Admin</h1>
             {response.message && (
               <Alert
