@@ -19,7 +19,6 @@ export const SideMenu = () => {
             <a href="/">
               <img className="logo" src={logo} width="300" height="100" />
             </a>
-            CMS ADMIN PANEL
           </Offcanvas.Title>
         </Offcanvas.Header>
         <hr />

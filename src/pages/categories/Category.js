@@ -1,5 +1,5 @@
 import React from "react";
-import { AddCatForm } from "../../components/cat-Form/AddCatForm";
+import { AddCatForm } from "../../components/cat-Form/AddCatForm ";
 import { CategoryTable } from "../../components/category-table/CategoryTable";
 import { AdminLayout } from "../../components/layout/AdminLayout";
 
