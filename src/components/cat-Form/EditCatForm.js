@@ -66,7 +66,7 @@ export const EditCatForm = ({ selectedCat }) => {
                       !item.parentId && (
                         <option
                           value={item._id}
-                          selected={item.id === form.parentId}
+                          selected={item._id === form.parentId}
                         >
                           {item.name}
                         </option>

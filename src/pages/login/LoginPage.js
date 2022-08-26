@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { CustomInputFeild } from "../../customInputFeild/CustomInputFeild";
 import { useDispatch, useSelector } from "react-redux";
-import { loginAdminUser, loginUserAction } from "./userAction";
+import { autoLogin, loginAdminUser, loginUserAction } from "./userAction";
 import { useLocation, useNavigate } from "react-router-dom";
 import logo from "./../../img/logo.png";
 
@@ -21,8 +21,8 @@ const LoginPage = () => {
     (location.state && location.state.from && location.state.from.pathname) ||
     "/dashboard";
   useEffect(() => {
-    user._id && navigate(origin);
-  }, [user, navigate]);
+    user._id ? navigate(origin) : dispatch(autoLogin());
+  }, [user, navigate, dispatch]);
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;

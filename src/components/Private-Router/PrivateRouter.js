@@ -8,6 +8,6 @@ export const PrivateRouter = ({ children }) => {
   return user._id ? (
     children
   ) : (
-    <Navigate to="/" replace state={{ form: location }} />
+    <Navigate to="/" replace state={{ from: location }} />
   );
 };
