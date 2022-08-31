@@ -132,3 +132,12 @@ export const fetchPM = () => {
   };
   return apiProcessor(option);
 };
+export const PostPM = (data) => {
+  const option = {
+    method: "post",
+    url: PMEP,
+    isPrivate: true,
+    data,
+  };
+  return apiProcessor(option);
+};
